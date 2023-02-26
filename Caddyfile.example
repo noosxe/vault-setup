@@ -1,4 +1,4 @@
-vault.yattle-tuna.ts.net {
+<your hostname + tailnet here>.ts.net {
   # This setting may have compatibility issues with some browsers
   # (e.g., attachment downloading on Firefox). Try disabling this
   # if you encounter issues
