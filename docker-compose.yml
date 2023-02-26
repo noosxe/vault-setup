@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  vault:
+    image: "vaultwarden/server:1.26.0-alpine"
+    restart: always
+    volumes:
+      - ./vault:/data
+
+  proxy:
+    build:
+      context: ./proxy
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - vault
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./tailscale:/var/lib/tailscale

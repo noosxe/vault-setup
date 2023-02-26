@@ -1,0 +1,20 @@
+vault.yattle-tuna.ts.net {
+  # This setting may have compatibility issues with some browsers
+  # (e.g., attachment downloading on Firefox). Try disabling this
+  # if you encounter issues
+  encode gzip
+
+  # Notifications redirected to the websockets server
+  reverse_proxy /notifications/hub http://vault:3012
+
+  # Proxy everything else to Rocket
+  reverse_proxy vault:80 {
+    # Send the true remote IP to Rocket, so that vaultwarden can put this in the
+    # log, so that fail2ban can ban the correct IP.
+    header_up X-Real-IP {remote_host}
+  }
+
+  log {
+    output stdout
+  }
+}
