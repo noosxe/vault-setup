@@ -11,4 +11,6 @@ Please visit <https://login.tailscale.com/admin/settings/keys> to get yourself a
 - Clone the repo
 - Copy the `.env.example` file to `.env`
 - Fill in your details
+- Copy the `Caddyfile.example` file to `Caddyfile`
+- Change the `<your hostname + tailnet here>` to match your `hostname.tailnet`
 - Run `docker compose up`
