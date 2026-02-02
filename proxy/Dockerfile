@@ -1,4 +1,4 @@
-FROM tailscale/tailscale:stable
+FROM tailscale/tailscale:v1.82.5
 
 ENV TS_HOSTNAME=
 ENV TS_AUTHKEY=

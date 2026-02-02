@@ -1,6 +1,6 @@
 services:
   vault:
-    image: "vaultwarden/server:1.32.1-alpine"
+    image: "vaultwarden/server:1.35.2-alpine"
     restart: always
     volumes:
       - ./vault:/data
