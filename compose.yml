@@ -1,18 +1,18 @@
 services:
   vault:
+    container_name: vault
     image: "vaultwarden/server:1.35.2-alpine"
-    restart: always
     volumes:
       - ./vault:/data
-
-  proxy:
-    build:
-      context: ./proxy
     restart: always
-    env_file:
-      - .env
+  caddy:
+    container_name: caddy
+    image: caddy:2.11-alpine
+    ports:
+      - 443:443
     depends_on:
       - vault
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
-      - ./tailscale:/var/lib/tailscale
+      - /var/run/tailscale/tailscaled.sock:/var/run/tailscale/tailscaled.sock
+    restart: always
