@@ -1,7 +1,7 @@
 services:
   vault:
     container_name: vault
-    image: "vaultwarden/server:1.35.2-alpine"
+    image: "vaultwarden/server:1.37.0-alpine"
     volumes:
       - ./vault:/data
     restart: always
